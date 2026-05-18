@@ -62,7 +62,7 @@ export function Experience() {
                 </div>
                 <div className="border border-border bg-card/60 backdrop-blur-sm rounded-sm p-4 sm:p-6 hover:border-primary/50 hover:shadow-glow-sm transition-all">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-sans text-xl font-semibold text-foreground">
+                    <h3 className="font-sans text-lg sm:text-xl font-semibold text-foreground break-words">
                       {j.role}{" "}
                       <span className="text-primary text-glow">@ {j.company}</span>
                     </h3>
