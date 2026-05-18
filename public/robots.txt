@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mian-abubakar.lovable.app/sitemap.xml
+Sitemap: https://mian-abubakar.vercel.app/sitemap.xml
