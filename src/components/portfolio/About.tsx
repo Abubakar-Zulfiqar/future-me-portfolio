@@ -14,7 +14,7 @@ export function About() {
         <SectionLabel index="01" title="about" />
         <div className="grid lg:grid-cols-12 gap-10 mt-10 items-start">
           {/* Portrait card */}
-          <div className="lg:col-span-4 order-1">
+          <div className="lg:col-span-4 order-1 max-w-sm mx-auto lg:mx-0 w-full">
             <div className="relative group">
               {/* Corner brackets */}
               <span className="absolute -top-2 -left-2 size-5 border-t-2 border-l-2 border-primary z-20" />
