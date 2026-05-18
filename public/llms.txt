@@ -1,0 +1,11 @@
+# Mian Muhammad Abubakar
+
+> Personal portfolio of Mian Muhammad Abubakar — a software engineer based in Lahore, Pakistan, building production-grade full-stack and AI-powered SaaS platforms (multi-agent orchestration, RAG, real-time systems) for clients across the UK, UAE, and Pakistan.
+
+## Pages
+
+- [Home](/): Hero, about, skills, experience, selected projects, and contact information.
+
+## Optional
+
+- Contact: abubakarmian583@gmail.com · +92 342 4545401 · Lahore, PK · open to remote roles in US / EU.

@@ -15,15 +15,54 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Software Engineer with 3+ years shipping production-grade full-stack & AI-powered SaaS platforms — multi-agent orchestration, RAG, real-time systems. Used by 10,000+ MAU.",
+          "Software Engineer (3+ yrs) shipping full-stack & AI SaaS — multi-agent orchestration, RAG, real-time systems. Trusted by 10,000+ MAU.",
       },
       { property: "og:title", content: "Mian Muhammad Abubakar — Software Engineer" },
       {
         property: "og:description",
         content: "Full-stack & AI engineer. Multi-agent orchestration, RAG, real-time SaaS.",
       },
+      { property: "og:url", content: "https://mian-abubakar.lovable.app/" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://mian-abubakar.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Mian Muhammad Abubakar",
+          jobTitle: "Software Engineer",
+          url: "https://mian-abubakar.lovable.app/",
+          email: "mailto:abubakarmian583@gmail.com",
+          telephone: "+92-342-4545401",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Lahore",
+            addressCountry: "PK",
+          },
+          knowsAbout: [
+            "Full-Stack Development",
+            "AI Integration",
+            "Multi-Agent Orchestration",
+            "Retrieval-Augmented Generation",
+            "Real-Time Systems",
+            "TypeScript",
+            "Node.js",
+            "Python",
+          ],
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "professional",
+            email: "abubakarmian583@gmail.com",
+            telephone: "+92-342-4545401",
+          },
+        }),
+      },
     ],
   }),
 });
