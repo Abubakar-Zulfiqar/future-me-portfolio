@@ -73,6 +73,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Mian Muhammad Abubakar" },
+      { title: "Personal Portfolio" },
+      { property: "og:title", content: "Personal Portfolio" },
+      { name: "twitter:title", content: "Personal Portfolio" },
+      { name: "description", content: "Future Me Portfolio creates a dynamic, futuristic personal website showcasing your resume and projects." },
+      { property: "og:description", content: "Future Me Portfolio creates a dynamic, futuristic personal website showcasing your resume and projects." },
+      { name: "twitter:description", content: "Future Me Portfolio creates a dynamic, futuristic personal website showcasing your resume and projects." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f107db93-deb2-412f-9eca-29681d79e54b/id-preview-76e02f09--edc17acd-1aec-4b5d-87cb-579a37c99fd9.lovable.app-1779097152432.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f107db93-deb2-412f-9eca-29681d79e54b/id-preview-76e02f09--edc17acd-1aec-4b5d-87cb-579a37c99fd9.lovable.app-1779097152432.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       {
