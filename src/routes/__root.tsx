@@ -4,11 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -68,53 +64,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Mian Muhammad Abubakar" },
-      { title: "Personal Portfolio" },
-      { property: "og:title", content: "Personal Portfolio" },
-      { name: "twitter:title", content: "Personal Portfolio" },
-      { name: "description", content: "Future Me Portfolio creates a dynamic, futuristic personal website showcasing your resume and projects." },
-      { property: "og:description", content: "Future Me Portfolio creates a dynamic, futuristic personal website showcasing your resume and projects." },
-      { name: "twitter:description", content: "Future Me Portfolio creates a dynamic, futuristic personal website showcasing your resume and projects." },
-      { property: "og:image", content: "https://mian-abubakar.vercel.app/og-image.png" },
-      { name: "twitter:image", content: "https://mian-abubakar.vercel.app/og-image.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:type", content: "website" },
-    ],
-    links: [
-      {
-        rel: "icon",
-        type: "image/svg+xml",
-        href: "/favicon.svg",
-      },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
