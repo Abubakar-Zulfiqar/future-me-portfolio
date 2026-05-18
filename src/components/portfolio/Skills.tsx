@@ -34,14 +34,14 @@ const groups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <SectionLabel index="02" title="stack" />
         <div className="grid md:grid-cols-2 gap-4 mt-10">
           {groups.map((g) => (
             <div
               key={g.name}
-              className="border border-border bg-card/60 backdrop-blur-sm rounded-sm p-5 hover:border-primary/50 transition-all group"
+              className="border border-border bg-card/60 backdrop-blur-sm rounded-sm p-4 sm:p-5 hover:border-primary/50 transition-all group"
             >
               <div className="flex items-center gap-2 font-mono text-xs mb-4">
                 <span className="text-accent">▸</span>
