@@ -120,7 +120,7 @@ export function Projects() {
           {projects.map((p) => (
             <article
               key={p.id}
-              className={`group relative border border-border bg-card/60 backdrop-blur-sm rounded-sm p-6 hover:border-primary/60 hover:shadow-glow-sm transition-all ${
+              className={`group relative border border-border bg-card/60 backdrop-blur-sm rounded-sm p-4 sm:p-6 hover:border-primary/60 hover:shadow-glow-sm transition-all ${
                 p.featured ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
