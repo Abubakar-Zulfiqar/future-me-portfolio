@@ -70,11 +70,11 @@ export function Hero() {
               <span className="font-mono text-xs text-muted-foreground">~ — zsh — 80×24</span>
               <span className="font-mono text-xs text-primary">●</span>
             </div>
-            <div className="p-5 font-mono text-sm space-y-1.5 min-h-[340px] relative z-10">
+            <div className="p-3 sm:p-5 font-mono text-xs sm:text-sm space-y-1.5 min-h-[260px] sm:min-h-[340px] relative z-10">
               {lines.slice(0, shown).map((l, i) => (
-                <div key={i} className="flex gap-2">
-                  <span className={l.p === "$" ? "text-accent" : "text-primary/60"}>{l.p}</span>
-                  <span className={l.p === "$" ? "text-foreground" : "text-primary text-glow"}>
+                <div key={i} className="flex gap-2 min-w-0">
+                  <span className={`shrink-0 ${l.p === "$" ? "text-accent" : "text-primary/60"}`}>{l.p}</span>
+                  <span className={`break-words min-w-0 ${l.p === "$" ? "text-foreground" : "text-primary text-glow"}`}>
                     {l.c}
                   </span>
                 </div>
