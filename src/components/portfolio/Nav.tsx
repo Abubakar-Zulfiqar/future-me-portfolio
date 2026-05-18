@@ -41,7 +41,9 @@ export function Nav() {
           ))}
         </ul>
         <a
-          href="mailto:abubakarmian583@gmail.com"
+          href="https://wa.me/923424545401?text=Hi%20Abubakar%2C%20I%27m%20interested%20in%20hiring%20you!"
+          target="_blank"
+          rel="noreferrer"
           className="hidden sm:inline-flex items-center gap-2 border border-primary/40 text-primary px-3 py-1.5 rounded-sm hover:bg-primary hover:text-primary-foreground transition-all shadow-glow-sm"
         >
           [hire_me]

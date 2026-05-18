@@ -3,7 +3,7 @@ import { SectionLabel } from "./About";
 const channels = [
   { k: "email", v: "abubakarmian583@gmail.com", href: "mailto:abubakarmian583@gmail.com" },
   { k: "phone", v: "+92 342 4545401", href: "tel:+923424545401" },
-  { k: "linkedin", v: "/in/mian-abubakar", href: "https://linkedin.com" },
+  { k: "linkedin", v: "/in/mian-abubakar-7a87b2220", href: "https://linkedin.com/in/mian-abubakar-7a87b2220" },
   { k: "location", v: "Lahore, PK · remote-friendly (US/EU)", href: null },
 ];
 
@@ -26,7 +26,9 @@ export function Contact() {
             </p>
 
             <a
-              href="mailto:abubakarmian583@gmail.com"
+              href="https://wa.me/923424545401?text=Hi%20Abubakar%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect!"
+              target="_blank"
+              rel="noreferrer"
               className="mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground font-mono px-6 py-3 rounded-sm shadow-glow hover:scale-[1.02] transition-transform"
             >
               <span>./send_message.sh</span>
