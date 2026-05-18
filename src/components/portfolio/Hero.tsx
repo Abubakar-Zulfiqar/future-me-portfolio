@@ -18,19 +18,19 @@ export function Hero() {
   }, [shown]);
 
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16 px-6 overflow-hidden">
+    <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16 px-4 sm:px-6 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
       <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-12 gap-10 items-center relative">
-        <div className="lg:col-span-7 space-y-8">
-          <div className="inline-flex items-center gap-2 font-mono text-xs text-accent border border-accent/30 px-3 py-1 rounded-sm">
-            <span className="size-1.5 rounded-full bg-accent shadow-glow-sm animate-pulse" />
-            STATUS: AVAILABLE_FOR_REMOTE_ROLES
+        <div className="lg:col-span-7 space-y-6 sm:space-y-8 min-w-0">
+          <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs text-accent border border-accent/30 px-2.5 py-1 rounded-sm max-w-full">
+            <span className="size-1.5 rounded-full bg-accent shadow-glow-sm animate-pulse shrink-0" />
+            <span className="truncate">STATUS: AVAILABLE_FOR_REMOTE_ROLES</span>
           </div>
 
-          <h1 className="font-sans text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
+          <h1 className="font-sans text-[2.25rem] sm:text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight break-words">
             <span className="block text-foreground">Engineering</span>
-            <span className="block text-primary text-glow crt-flicker">intelligent_systems</span>
-            <span className="block text-muted-foreground text-3xl md:text-5xl mt-2 font-mono">
+            <span className="block text-primary text-glow crt-flicker break-all sm:break-words">intelligent_systems</span>
+            <span className="block text-muted-foreground text-2xl sm:text-3xl md:text-5xl mt-2 font-mono">
               <span className="text-accent">{">"}</span> that ship.
             </span>
           </h1>
