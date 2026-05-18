@@ -9,13 +9,13 @@ const channels = [
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <SectionLabel index="05" title="contact" />
 
         <div className="mt-12 grid lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7">
-            <h3 className="font-sans text-4xl md:text-5xl font-bold leading-tight">
+            <h3 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold leading-tight break-words">
               <span className="text-foreground">Let&apos;s build something</span>{" "}
               <span className="text-primary text-glow">unreasonable</span>
               <span className="text-accent">.</span>
