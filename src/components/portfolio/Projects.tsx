@@ -108,7 +108,7 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <SectionLabel index="04" title="projects" />
         <p className="mt-6 font-mono text-sm text-muted-foreground max-w-2xl">
