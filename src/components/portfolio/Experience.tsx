@@ -49,20 +49,20 @@ const jobs = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 px-6">
+    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <SectionLabel index="03" title="experience" />
         <div className="mt-12 relative">
           <div className="absolute left-3 md:left-4 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-border to-transparent" />
-          <div className="space-y-10">
+          <div className="space-y-8 sm:space-y-10">
             {jobs.map((j, i) => (
-              <div key={i} className="relative pl-12 md:pl-16">
+              <div key={i} className="relative pl-10 sm:pl-12 md:pl-16">
                 <div className="absolute left-0 md:left-1 top-1.5 size-6 md:size-7 rounded-sm border border-primary bg-background flex items-center justify-center shadow-glow-sm">
                   <span className="size-2 rounded-full bg-primary animate-pulse" />
                 </div>
-                <div className="border border-border bg-card/60 backdrop-blur-sm rounded-sm p-6 hover:border-primary/50 hover:shadow-glow-sm transition-all">
+                <div className="border border-border bg-card/60 backdrop-blur-sm rounded-sm p-4 sm:p-6 hover:border-primary/50 hover:shadow-glow-sm transition-all">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-sans text-xl font-semibold text-foreground">
+                    <h3 className="font-sans text-lg sm:text-xl font-semibold text-foreground break-words">
                       {j.role}{" "}
                       <span className="text-primary text-glow">@ {j.company}</span>
                     </h3>

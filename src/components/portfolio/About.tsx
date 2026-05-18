@@ -9,12 +9,12 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <SectionLabel index="01" title="about" />
         <div className="grid lg:grid-cols-12 gap-10 mt-10 items-start">
           {/* Portrait card */}
-          <div className="lg:col-span-4 order-1">
+          <div className="lg:col-span-4 order-1 max-w-sm mx-auto lg:mx-0 w-full">
             <div className="relative group">
               {/* Corner brackets */}
               <span className="absolute -top-2 -left-2 size-5 border-t-2 border-l-2 border-primary z-20" />
