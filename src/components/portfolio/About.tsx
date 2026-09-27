@@ -1,10 +1,10 @@
-import portrait from "@/assets/abubakar.png";
+import portrait from "@/assets/abubakar.webp";
 
 const stats = [
-  { k: "years_exp", v: "3+" },
+  { k: "years_exp", v: "4+" },
   { k: "monthly_users", v: "10k+" },
-  { k: "projects_shipped", v: "10+" },
-  { k: "ai_agents_orchestrated", v: "32" },
+  { k: "projects_shipped", v: "19" },
+  { k: "uae_gov_platforms", v: "2" },
 ];
 
 export function About() {
@@ -28,6 +28,10 @@ export function About() {
                   <img
                     src={portrait}
                     alt="Mian Muhammad Abubakar"
+                    width={1115}
+                    height={960}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     style={{ filter: "contrast(1.05)" }}
                   />
@@ -40,13 +44,16 @@ export function About() {
                     }}
                   />
                   {/* Vignette */}
-                  <div className="absolute inset-0 pointer-events-none" style={{
-                    boxShadow: "inset 0 0 80px oklch(0.05 0 0 / 0.8)",
-                  }} />
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      boxShadow: "inset 0 0 80px oklch(0.05 0 0 / 0.8)",
+                    }}
+                  />
                 </div>
 
                 {/* ID bar */}
-                <div className="flex items-center justify-between px-3 py-2 border-t border-border bg-background/80 font-mono text-[10px]">
+                <div className="flex items-center justify-between px-3 py-2 border-t border-border bg-background/80 font-mono text-[11px]">
                   <span className="text-primary">● REC</span>
                   <span className="text-muted-foreground tracking-widest">ID_0x4B7</span>
                   <span className="text-accent">CH_01</span>
@@ -54,8 +61,10 @@ export function About() {
               </div>
 
               {/* Caption strip */}
-              <div className="mt-3 font-mono text-[11px] text-muted-foreground flex justify-between">
-                <span><span className="text-accent">▸</span> subject: m.abubakar</span>
+              <div className="mt-3 font-mono text-xs text-muted-foreground flex justify-between">
+                <span>
+                  <span className="text-accent">▸</span> subject: m.abubakar
+                </span>
                 <span className="text-primary">verified ✓</span>
               </div>
             </div>
@@ -66,16 +75,17 @@ export function About() {
             <div className="space-y-5 font-mono text-sm leading-relaxed text-muted-foreground">
               <p>
                 <span className="text-primary">//</span> I&apos;m{" "}
-                <span className="text-foreground">Mian Muhammad Abubakar</span>, a software
-                engineer based in Lahore, Pakistan, shipping production-grade systems for
-                startups, governments, and enterprise clients across the UK, UAE, and Pakistan.
+                <span className="text-foreground">Mian Muhammad Abubakar</span>, a software engineer
+                based in Lahore, Pakistan, shipping production-grade systems for startups,
+                governments, and enterprise clients across the UK, UAE, and Pakistan.
               </p>
               <p>
-                I specialize in <span className="text-primary text-glow">multi-agent AI orchestration</span>,
-                retrieval-augmented generation, real-time architectures, and high-throughput
-                data pipelines. I&apos;ve built platforms that screen national talent for the UAE
-                government, run UK transport operators, and unify 8+ work apps into one
-                intelligent assistant.
+                I specialize in{" "}
+                <span className="text-primary text-glow">multi-agent AI orchestration</span>,
+                retrieval-augmented generation, real-time architectures, and high-throughput data
+                pipelines. I&apos;ve built AI talent platforms for the UAE government (DGE Mawaheb
+                and the National Experts Program), hiring SaaS used by 10,000+ people a month,
+                systems that run UK transport operators, and an assistant that unifies 8+ work apps.
               </p>
               <p>
                 I own end-to-end delivery — database schema, API design, frontend, and cloud
@@ -90,7 +100,7 @@ export function About() {
                   className="border border-border bg-card/60 backdrop-blur-sm p-4 rounded-sm hover:border-primary/60 hover:shadow-glow-sm transition-all"
                 >
                   <div className="font-sans text-3xl font-bold text-primary text-glow">{s.v}</div>
-                  <div className="font-mono text-[10px] text-muted-foreground mt-2 truncate">
+                  <div className="font-mono text-[11px] text-muted-foreground mt-2 truncate">
                     <span className="text-accent">$</span> {s.k}
                   </div>
                 </div>

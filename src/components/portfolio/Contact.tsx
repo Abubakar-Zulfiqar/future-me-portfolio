@@ -1,9 +1,15 @@
 import { SectionLabel } from "./About";
+import { documents, trackContact, trackDownload } from "@/lib/documents";
 
 const channels = [
   { k: "email", v: "abubakarmian583@gmail.com", href: "mailto:abubakarmian583@gmail.com" },
   { k: "phone", v: "+92 342 4545401", href: "tel:+923424545401" },
-  { k: "linkedin", v: "/in/mian-abubakar-7a87b2220", href: "https://linkedin.com/in/mian-abubakar-7a87b2220" },
+  {
+    k: "linkedin",
+    v: "/in/mian-abubakar-7a87b2220",
+    href: "https://linkedin.com/in/mian-abubakar-7a87b2220",
+  },
+  { k: "github", v: "/Abubakar-Zulfiqar", href: "https://github.com/Abubakar-Zulfiqar" },
   { k: "location", v: "Lahore, PK · remote-friendly (US/EU)", href: null },
 ];
 
@@ -21,12 +27,14 @@ export function Contact() {
               <span className="text-accent">.</span>
             </h3>
             <p className="font-mono text-sm text-muted-foreground mt-6 max-w-lg leading-relaxed">
-              <span className="text-primary">//</span> open to full-time remote roles, AI / full-stack
-              contracts, and ambitious greenfield projects. typical response time: under 24h.
+              <span className="text-primary">//</span> open to full-time remote roles, AI /
+              full-stack contracts, and ambitious greenfield projects. typical response time: under
+              24h.
             </p>
 
             <a
               href="https://wa.me/923424545401?text=Hi%20Abubakar%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect!"
+              onClick={() => trackContact("whatsapp", "contact")}
               target="_blank"
               rel="noreferrer"
               className="mt-8 inline-flex items-center gap-3 bg-primary text-primary-foreground font-mono px-6 py-3 rounded-sm shadow-glow hover:scale-[1.02] transition-transform"
@@ -34,6 +42,24 @@ export function Contact() {
               <span>./send_message.sh</span>
               <span>→</span>
             </a>
+
+            <div id="docs" className="mt-8 font-mono text-xs text-muted-foreground scroll-mt-24">
+              <span className="text-accent">$</span> ls ./docs
+            </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {documents.map((d) => (
+                <a
+                  key={d.k}
+                  href={d.href}
+                  download={d.file}
+                  onClick={() => trackDownload(d.k)}
+                  className="inline-flex items-center gap-2 border border-border font-mono text-sm px-3 py-2 rounded-sm text-foreground hover:border-primary hover:text-primary transition-colors"
+                >
+                  <span className="text-accent">↓</span> {d.label}
+                  <span className="text-[11px] text-muted-foreground">{d.desc}</span>
+                </a>
+              ))}
+            </div>
           </div>
 
           <div className="lg:col-span-5 border border-border bg-card/70 backdrop-blur-sm rounded-sm overflow-hidden scanlines relative">
@@ -56,8 +82,9 @@ export function Contact() {
                     <a
                       href={c.href}
                       target={c.href.startsWith("http") ? "_blank" : undefined}
+                      onClick={() => trackContact(c.k, "contact")}
                       rel="noreferrer"
-                      className="text-accent hover:text-glow-amber hover:underline break-all"
+                      className="inline-block py-1 text-accent hover:text-glow-amber hover:underline break-all"
                     >
                       &quot;{c.v}&quot;
                     </a>
