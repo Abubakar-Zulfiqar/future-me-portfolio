@@ -4,7 +4,14 @@
 
 ## Pages
 
-- [Home](/): Hero, about, skills, experience, selected projects, and contact information.
+- [Home](/): Hero, about, skills, experience, education, projects, and contact information.
+
+## Highlights
+
+- 4+ years building full-stack and AI SaaS; hiring platform serving 10,000+ monthly active users.
+- UAE government AI platforms: Mawaheb (Department of Government Enablement) and the National Experts Program.
+- Multi-agent AI Employee Agent with RAG over pgvector; AI LMS with avatar mock interviews.
+- UK transport and taxi platforms; enterprise ERP and payroll systems.
 
 ## Optional
 

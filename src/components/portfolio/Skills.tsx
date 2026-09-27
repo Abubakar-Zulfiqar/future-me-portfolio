@@ -4,15 +4,46 @@ const groups = [
   { name: "languages", items: ["TypeScript", "JavaScript", "Python", "PHP", "SQL"] },
   {
     name: "frontend",
-    items: ["React 19", "Next.js 16", "Vue 3 / Nuxt", "React Native (Expo)", "Tailwind", "shadcn/ui", "ReactFlow", "ApexCharts"],
+    items: [
+      "React 19",
+      "Next.js 16",
+      "Vue 3 / Nuxt",
+      "React Native (Expo)",
+      "Tailwind",
+      "shadcn/ui",
+      "ReactFlow",
+      "Three.js / r3f",
+      "ApexCharts",
+    ],
   },
   {
     name: "backend",
-    items: ["Node.js", "NestJS", "Express.js", "FastAPI", "Laravel", "GraphQL", "WebSockets", "SSE"],
+    items: [
+      "Node.js",
+      "NestJS",
+      "Express.js",
+      "FastAPI",
+      "Laravel",
+      "Livewire",
+      "GraphQL",
+      "WebSockets",
+      "SSE",
+    ],
   },
   {
     name: "ai_ml",
-    items: ["OpenAI GPT-5", "Multi-agent orchestration", "RAG", "text-embedding-3-large", "pgvector", "HeyGen avatars", "Affinda", "Python ML services"],
+    items: [
+      "OpenAI GPT-5",
+      "Multi-agent orchestration",
+      "RAG",
+      "text-embedding-3-large",
+      "pgvector",
+      "HeyGen avatars",
+      "Anam CARA-3 (WebRTC)",
+      "Azure Speech STT",
+      "Affinda",
+      "Python ML services",
+    ],
   },
   {
     name: "databases",
@@ -20,15 +51,40 @@ const groups = [
   },
   {
     name: "cloud_devops",
-    items: ["AWS (EC2/S3/SES)", "Azure (Blob/Speech/VM)", "Docker", "CI/CD", "OSRM self-hosted", "OpenStreetMap"],
+    items: [
+      "AWS (EC2/S3/SES/Transcribe)",
+      "Azure (Blob/Speech/VM/Key Vault)",
+      "Docker",
+      "CI/CD",
+      "OSRM self-hosted",
+      "OpenStreetMap",
+    ],
   },
   {
     name: "architecture",
-    items: ["Microservices", "Turborepo monorepos", "Event-driven (Bull/Celery)", "Multi-tenant SaaS", "OAuth2", "JWT"],
+    items: [
+      "Microservices",
+      "Turborepo monorepos",
+      "Event-driven (Bull/Celery)",
+      "Multi-tenant SaaS",
+      "Clean Architecture",
+      "OAuth2",
+      "Entra ID SSO",
+      "JWT",
+    ],
   },
   {
     name: "integrations",
-    items: ["Stripe", "Mapbox", "Twilio", "Pusher", "Socket.io", "Playwright", "Puppeteer"],
+    items: [
+      "Stripe",
+      "PayPal",
+      "Mapbox",
+      "Twilio",
+      "Pusher",
+      "Socket.io",
+      "Playwright",
+      "Puppeteer",
+    ],
   },
 ];
 
@@ -53,7 +109,7 @@ export function Skills() {
                 {g.items.map((it) => (
                   <span
                     key={it}
-                    className="font-mono text-[11px] border border-border bg-background/60 px-2 py-1 rounded-sm text-foreground/90 hover:border-primary hover:text-primary hover:shadow-glow-sm transition-all cursor-default"
+                    className="font-mono text-xs border border-border bg-background/60 px-2 py-1 rounded-sm text-foreground/90 hover:border-primary hover:text-primary hover:shadow-glow-sm transition-all cursor-default"
                   >
                     {it}
                   </span>

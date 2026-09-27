@@ -7,10 +7,12 @@ const jobs = [
     date: "09/2025 — Present",
     location: "Lahore, PK",
     bullets: [
-      "Built multi-agent AI productivity platform unifying Gmail, Jira, GitHub, Notion, Drive, Calendar, WhatsApp into one assistant",
-      "Designed three-tier memory architecture (Redis + Postgres + pgvector 3072-dim) powering RAG over user docs",
-      "Shipped AI-powered LMS with 27 modular NestJS services, HeyGen avatar mock interviews, multi-tenant isolation (95+ tests)",
-      "Architected talent assessment pipeline for UAE National Experts Program — government-scale evaluation",
+      "Sole full-stack developer on Mawaheb, the UAE DGE talent platform: AI-generated assessments, real-time avatar interviews (Anam CARA-3 over WebRTC), and a Skills Observatory dashboard",
+      "Built a multi-agent orchestration layer routing tasks to role-specific agents, plus a ReactFlow workflow editor chaining steps across 8+ apps (Gmail, Jira, GitHub, Notion, Calendar)",
+      "Designed a three-tier memory system (Redis + Postgres + pgvector 3072-dim) powering RAG over user docs, with cron analyzers flagging stale PRs, Jira blockers, and calendar conflicts",
+      "Shipped an AI screening pipeline (Affinda CV parsing, GPT interview scoring, video transcription, ranking) for a hiring SaaS serving 10,000+ MAU — evaluation cut from days to minutes",
+      "Delivered an AI LMS (27 NestJS services + Vue 3) with HeyGen avatar mock interviews and AI career counseling, validated by 95+ unit & E2E tests for multi-tenant isolation",
+      "Built the UAE National Experts Program pipeline: CV parsing → AI text interview → phased MCQs → weighted four-pillar leadership score, with Bull jobs and Socket.io progress",
     ],
   },
   {
@@ -19,9 +21,9 @@ const jobs = [
     date: "02/2025 — 08/2025",
     location: "Lahore, PK",
     bullets: [
-      "Architected Turborepo monorepo with 5 apps for UK transport operators (TMS, WMS, driver/tech/customer mobile)",
-      "Built UK taxi platform with AI dispatch + dynamic pricing → 20% revenue lift, 30% faster wait times",
-      "Replaced Google Maps API with self-hosted OSRM + Typesense address search on AWS EC2 — eliminated recurring costs",
+      "Architected a Turborepo monorepo of 5 apps for UK transport operators (TMS, WMS, driver/technician/customer React Native apps) — 35% faster API responses at 99% uptime",
+      "Replaced paid Google Maps calls with a self-hosted OSRM engine on AWS EC2 (full UK OpenStreetMap data) and sub-100ms Typesense address autocomplete",
+      "Built UK taxi platform dynamic pricing + AI driver dispatch → 20% revenue increase, 30% shorter rider wait times",
     ],
   },
   {
@@ -30,9 +32,9 @@ const jobs = [
     date: "11/2022 — 01/2025",
     location: "Lahore, PK",
     bullets: [
-      "Built multi-tenant ERP serving 5 housing societies, 3000+ residents, 1000+ employees — 12 integrated modules",
-      "Shipped HR & Payroll system for 1000+ employees with biometric integration → 60% faster payroll processing",
-      "Delivered Triangle POS for automotive shops with real-time Livewire checkout + Twilio service reminders",
+      "Built 12 integrated ERP modules (HRMS, double-entry accounting, procurement, FIFO inventory) on Laravel, Vue & SQL Server for 5 housing societies with 3,000+ residents — 70% less manual work",
+      "Automated payroll for 1,000+ employees (overtime, deductions, ZKTeco biometric attendance) with T-SQL stored procedures → 60% faster payroll processing",
+      "Delivered Triangle POS for automotive shops plus client e-commerce, booking, and corporate sites (incl. a WebGL 3D virtual tour) as sole developer",
     ],
   },
   {
@@ -41,10 +43,15 @@ const jobs = [
     date: "08/2022 — 10/2022",
     location: "Lahore, PK",
     bullets: [
-      "Learned MERN stack and product engineering practices under senior engineers in Agile setting",
-      "Built task-management module, presented at intern demo, picked up code review + branch workflows",
+      "Trained on the MERN stack in an Agile team under senior engineers, working with code reviews and branch-based Git workflows",
+      "Built and demoed a task-management module (REST API + React UI) at the intern demo",
     ],
   },
+];
+
+const education = [
+  { degree: "M.Phil. Computer Science", school: "NCBA&E, Lahore", date: "2024 — 2026" },
+  { degree: "B.S. Computer Science", school: "NCBA&E, Lahore", date: "2019 — 2023" },
 ];
 
 export function Experience() {
@@ -63,8 +70,7 @@ export function Experience() {
                 <div className="border border-border bg-card/60 backdrop-blur-sm rounded-sm p-4 sm:p-6 hover:border-primary/50 hover:shadow-glow-sm transition-all">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="font-sans text-lg sm:text-xl font-semibold text-foreground break-words">
-                      {j.role}{" "}
-                      <span className="text-primary text-glow">@ {j.company}</span>
+                      {j.role} <span className="text-primary text-glow">@ {j.company}</span>
                     </h3>
                     <div className="font-mono text-xs text-accent">{j.date}</div>
                   </div>
@@ -80,6 +86,27 @@ export function Experience() {
                     ))}
                   </ul>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <div className="font-mono text-xs text-muted-foreground mb-4">
+            <span className="text-accent">▸</span> <span className="text-primary">education</span>
+            <span>.log</span>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {education.map((e) => (
+              <div
+                key={e.degree}
+                className="border border-border bg-card/60 backdrop-blur-sm rounded-sm p-4 sm:p-5"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-sans text-lg font-semibold text-foreground">{e.degree}</h3>
+                  <span className="font-mono text-xs text-accent">{e.date}</span>
+                </div>
+                <div className="font-mono text-xs text-muted-foreground mt-1">{e.school}</div>
               </div>
             ))}
           </div>
