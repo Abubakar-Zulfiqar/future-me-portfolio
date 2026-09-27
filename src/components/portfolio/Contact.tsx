@@ -10,7 +10,7 @@ const channels = [
     href: "https://linkedin.com/in/mian-abubakar-7a87b2220",
   },
   { k: "github", v: "/Abubakar-Zulfiqar", href: "https://github.com/Abubakar-Zulfiqar" },
-  { k: "location", v: "Lahore, PK · remote-friendly (US/EU)", href: null },
+  { k: "location", v: "Lahore, PK · Pakistan & worldwide remote", href: null },
 ];
 
 export function Contact() {

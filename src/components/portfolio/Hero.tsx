@@ -48,8 +48,8 @@ export function Hero() {
 
           <p className="text-muted-foreground max-w-xl leading-relaxed font-mono text-sm">
             I build production-grade full-stack and AI-powered SaaS platforms — multi-agent
-            orchestration, RAG pipelines, real-time avatar interviews, and multi-tenant systems used
-            by tens of thousands of people.
+            orchestration, RAG pipelines, real-time avatar interviews, and multi-tenant hiring SaaS
+            used by 10,000+ people a month.
           </p>
 
           <div className="flex flex-wrap gap-3 font-mono text-sm">

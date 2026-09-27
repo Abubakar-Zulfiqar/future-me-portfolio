@@ -3,7 +3,7 @@ import portrait from "@/assets/abubakar.webp";
 const stats = [
   { k: "years_exp", v: "4+" },
   { k: "monthly_users", v: "10k+" },
-  { k: "projects_shipped", v: "19" },
+  { k: "projects_shipped", v: "18" },
   { k: "uae_gov_platforms", v: "2" },
 ];
 
@@ -82,14 +82,14 @@ export function About() {
               <p>
                 I specialize in{" "}
                 <span className="text-primary text-glow">multi-agent AI orchestration</span>,
-                retrieval-augmented generation, real-time architectures, and high-throughput data
-                pipelines. I&apos;ve built AI talent platforms for the UAE government (DGE Mawaheb
-                and the National Experts Program), hiring SaaS used by 10,000+ people a month,
-                systems that run UK transport operators, and an assistant that unifies 8+ work apps.
+                retrieval-augmented generation, real-time systems, and multi-tenant SaaS. I&apos;ve
+                built AI talent platforms for the UAE government (DGE Mawaheb and the National
+                Experts Program), hiring SaaS used by 10,000+ people a month, systems that run UK
+                transport operators, and an assistant that unifies 8+ work apps.
               </p>
               <p>
                 I own end-to-end delivery — database schema, API design, frontend, and cloud
-                deployment across AWS and Azure. Open to remote roles in US and EU markets.
+                deployment across AWS and Azure. Open to roles in Pakistan &amp; worldwide remote.
               </p>
             </div>
 

@@ -91,7 +91,8 @@ const projects: Project[] = [
     details:
       "Supports students, faculty, and leadership with adaptive learning, mock interviews powered by HeyGen avatars and GPT-5, AI career counseling, automatic course generation via ML services, skill gap analysis, PDFKit certificates, and workforce analytics dashboards. Full multi-tenant isolation across companies, validated with 95+ unit and end-to-end tests.",
     stack: ["NestJS", "Vue 3", "Postgres 16", "Redis", "HeyGen", "GPT-5", "Azure"],
-    impact: "Lets orgs scale upskilling to thousands of learners without growing training teams.",
+    impact:
+      "On-demand AI tutoring and mock interviews, so orgs scale upskilling without adding trainers.",
   },
   {
     id: "05",
@@ -103,7 +104,7 @@ const projects: Project[] = [
       "Evaluates candidates across AI expertise, leadership capacity, strategic thinking, growth mindset, and ethical leadership. Resumes are parsed via Affinda and a custom ML server, followed by a 5-question AI text interview, two phased MCQ assessments, and a consolidated leadership score weighted across four pillars. Bull jobs poll the ML server while Socket.io pushes live progress; Puppeteer renders PDF reports.",
     stack: ["Express", "TypeScript", "Postgres", "Bull", "Socket.io", "GPT-5", "Puppeteer"],
     impact:
-      "Replaced weeks of manual screening; hundreds of candidates scored on one objective rubric.",
+      "Replaced weeks of manual screening; every candidate scored on the same weighted four-pillar rubric.",
   },
   {
     id: "06",
@@ -141,27 +142,17 @@ const projects: Project[] = [
   {
     id: "09",
     name: "UK Taxi Management System",
-    tag: "ai dispatch · payments",
+    tag: "ai dispatch · self-hosted routing",
     summary:
-      "Taxi platform with dynamic pricing, AI driver dispatch, and PCI-DSS-compliant payments.",
+      "Taxi platform with dynamic pricing, AI driver dispatch, PCI-DSS-compliant payments, and self-hosted UK routing.",
     details:
-      "Intelligent dynamic pricing, AI dispatch that optimizes driver assignment, and a payment layer integrating Stripe and Wonderful Payments with PCI-DSS compliance. Real-time driver tracking, automated email notifications, and frontends for operators, drivers, and customers.",
-    stack: ["Laravel", "React", "Vue", "Next.js", "MySQL", "Redis", "Stripe"],
-    impact: "20% revenue increase from dynamic pricing · 30% shorter rider wait times.",
+      "Intelligent dynamic pricing, AI dispatch that optimizes driver assignment, and a payment layer integrating Stripe and Wonderful Payments with PCI-DSS compliance. Real-time driver tracking, automated email notifications, and frontends for operators, drivers, and customers. Replaced paid Google Maps API calls by deploying an OSRM routing server on AWS EC2 with the full UK OpenStreetMap region, and wrote Python tooling to load OSM addresses into Typesense for sub-100ms autocomplete.",
+    stack: ["Laravel", "React", "Vue", "Next.js", "MySQL", "Redis", "Stripe", "OSRM", "Typesense"],
+    impact:
+      "20% revenue increase from dynamic pricing · 30% shorter rider wait times · no more Google Maps API costs.",
   },
   {
     id: "10",
-    name: "Self-Hosted OSRM + Typesense",
-    tag: "infrastructure",
-    summary:
-      "Replaced paid Google Maps calls with self-hosted UK routing and sub-100ms address search.",
-    details:
-      "Deployed an OSRM server on AWS EC2 computing distances between lat/long points, imported the full UK region from OpenStreetMap, wrote Python tooling to convert OSM data to JSON, and ingested it into a Typesense addresses collection for in-app autocomplete.",
-    stack: ["AWS EC2", "OSRM", "OpenStreetMap", "Python", "Typesense", "Nginx"],
-    impact: "Eliminated recurring Google Maps costs; full control over routing data.",
-  },
-  {
-    id: "11",
     name: "Enterprise ERP System",
     tag: "erp · 12 modules",
     summary: "12-module ERP for 5 housing societies with 3,000+ residents and 1,000+ employees.",
@@ -171,7 +162,7 @@ const projects: Project[] = [
     impact: "Reduced manual operational work by 70%.",
   },
   {
-    id: "12",
+    id: "11",
     name: "HR & Payroll System",
     tag: "hrms · 1000+ employees",
     summary:
@@ -182,7 +173,7 @@ const projects: Project[] = [
     impact: "60% faster payroll processing; no more end-of-month manual reconciliation.",
   },
   {
-    id: "13",
+    id: "12",
     name: "Triangle POS",
     tag: "pos · livewire",
     summary:
