@@ -1,142 +1,175 @@
 import { useEffect, useState } from "react";
+import {
+  Cross2Icon,
+  HamburgerMenuIcon,
+  MagnifyingGlassIcon,
+  MoonIcon,
+  SunIcon,
+} from "@radix-ui/react-icons";
 import { trackContact } from "@/lib/documents";
-
-const links = [
-  { id: "about", label: "about" },
-  { id: "skills", label: "stack" },
-  { id: "experience", label: "experience" },
-  { id: "projects", label: "projects" },
-  { id: "contact", label: "contact" },
-];
-
-const HIRE_URL =
-  "https://wa.me/923424545401?text=Hi%20Abubakar%2C%20I%27m%20interested%20in%20hiring%20you!";
+import { CONTACT_LABEL, SECTIONS, SITE } from "@/lib/site";
+import { toggleTheme } from "@/lib/theme";
+import { btn } from "./buttons";
+import { CommandMenu } from "./CommandMenu";
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
+  const [modKey, setModKey] = useState("⌘");
 
+  // Highlight the section currently crossing the middle of the viewport. The hero ("top") is
+  // observed too, so the highlight clears when you scroll back up.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Highlight the section currently crossing the middle of the viewport.
-  useEffect(() => {
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
       },
       { rootMargin: "-45% 0px -50% 0px" },
     );
-    for (const l of links) {
-      const el = document.getElementById(l.id);
-      if (el) observer.observe(el);
+    for (const id of ["top", ...SECTIONS.map((s) => s.id)]) {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
     }
-    return () => observer.disconnect();
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    if (!/Mac|iPhone|iPad/.test(navigator.platform)) setModKey("Ctrl");
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setMenuOpen((v) => !v);
+      }
+      if (e.key === "Escape") setOpen(false);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, []);
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
-        open
-          ? "bg-background border-b border-border"
-          : scrolled
-            ? "backdrop-blur-md bg-background/85 border-b border-border"
-            : ""
-      }`}
-    >
-      <nav
-        aria-label="Primary"
-        className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between font-mono text-sm"
-      >
-        <a href="#top" className="flex items-center gap-2 text-primary text-glow">
-          <span className="text-accent">~/</span>
-          <span className="font-semibold">mian_abubakar</span>
-          <span className="cursor-blink" aria-hidden="true" />
-        </a>
-        <ul className="hidden lg:flex items-center gap-1">
-          {links.map((l) => (
-            <li key={l.id}>
-              <a
-                href={`#${l.id}`}
-                aria-current={active === l.id ? "location" : undefined}
-                className={`whitespace-nowrap px-3 py-1.5 transition-colors rounded-sm hover:text-primary hover:bg-secondary ${
-                  active === l.id ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                <span className="text-accent">·</span> {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="flex items-center gap-2">
+    <>
+      <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-4">
+        <nav
+          aria-label="Primary"
+          className="panel mx-auto flex h-14 max-w-5xl items-center gap-6 rounded-full pl-5 pr-2"
+        >
           <a
-            href={HIRE_URL}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => trackContact("whatsapp", "nav")}
-            className="hidden sm:inline-flex items-center gap-2 border border-primary/40 text-primary px-3 py-1.5 rounded-sm hover:bg-primary hover:text-primary-foreground transition-all shadow-glow-sm"
+            href="#top"
+            className="inline-flex min-h-8 items-center text-[15px] font-semibold tracking-[-0.01em] text-ink"
           >
-            [hire_me]
+            {SITE.shortName}
           </a>
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="lg:hidden inline-flex items-center justify-center size-10 border border-border rounded-sm text-primary hover:border-primary transition-colors"
-          >
-            <span aria-hidden="true" className="text-base leading-none">
-              {open ? "✕" : "≡"}
-            </span>
-          </button>
-        </div>
-      </nav>
 
-      {open && (
-        <div id="mobile-menu" className="lg:hidden border-t border-border px-4 pb-4 font-mono">
-          <ul className="py-2">
-            {links.map((l) => (
-              <li key={l.id}>
+          <ul className="hidden flex-1 items-center gap-1 lg:flex">
+            {SECTIONS.map((s) => (
+              <li key={s.id}>
                 <a
-                  href={`#${l.id}`}
-                  onClick={() => setOpen(false)}
-                  aria-current={active === l.id ? "location" : undefined}
-                  className={`block py-3 border-b border-border/60 ${
-                    active === l.id ? "text-primary" : "text-foreground"
+                  href={`#${s.id}`}
+                  aria-current={active === s.id ? "location" : undefined}
+                  className={`rounded-md px-3 py-1.5 text-sm transition-colors hover:text-ink ${
+                    active === s.id ? "text-ink" : "text-ink-subtle"
                   }`}
                 >
-                  <span className="text-accent">$</span> cd {l.label}
+                  {s.label}
                 </a>
               </li>
             ))}
           </ul>
-          <a
-            href={HIRE_URL}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => {
-              trackContact("whatsapp", "mobile_nav");
-              setOpen(false);
-            }}
-            className="mt-3 flex justify-center bg-primary text-primary-foreground py-3 rounded-sm shadow-glow-sm"
+
+          <div className="ml-auto flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open command menu"
+              className="hidden h-8 items-center gap-2 rounded-full border border-line bg-surface-1/60 pl-2.5 pr-1.5 text-sm text-ink-subtle transition-colors hover:border-line-strong hover:text-ink sm:inline-flex"
+            >
+              <MagnifyingGlassIcon className="size-3.5" aria-hidden="true" />
+              <span>Search</span>
+              <kbd className="rounded border border-line bg-surface-2 px-1.5 font-mono text-[11px]">
+                {modKey} K
+              </kbd>
+            </button>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label="Toggle light and dark theme"
+              className="inline-flex size-8 items-center justify-center rounded-full text-ink-subtle transition-colors hover:bg-surface-2 hover:text-ink"
+            >
+              <SunIcon className="theme-icon-dark size-4" aria-hidden="true" />
+              <MoonIcon className="theme-icon-light size-4" aria-hidden="true" />
+            </button>
+            <a
+              href={SITE.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackContact("whatsapp", "nav")}
+              className={`${btn.primarySm} hidden rounded-full! sm:inline-flex`}
+            >
+              {CONTACT_LABEL}
+            </a>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? "Close menu" : "Open menu"}
+              className="inline-flex size-9 items-center justify-center rounded-full border border-line text-ink lg:hidden"
+            >
+              {open ? <Cross2Icon className="size-4" /> : <HamburgerMenuIcon className="size-4" />}
+            </button>
+          </div>
+        </nav>
+
+        {open && (
+          <div
+            id="mobile-menu"
+            className="panel mx-auto mt-2 max-w-5xl rounded-[var(--radius-card)] px-4 pb-5 lg:hidden"
           >
-            [hire_me] → whatsapp
-          </a>
-        </div>
-      )}
-    </header>
+            <ul className="py-2">
+              {SECTIONS.map((s) => (
+                <li key={s.id}>
+                  <a
+                    href={`#${s.id}`}
+                    onClick={() => setOpen(false)}
+                    aria-current={active === s.id ? "location" : undefined}
+                    className={`block border-b border-line py-3.5 text-base ${
+                      active === s.id ? "text-ink" : "text-ink-muted"
+                    }`}
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  setMenuOpen(true);
+                }}
+                className={btn.secondary}
+              >
+                <MagnifyingGlassIcon className="size-4" aria-hidden="true" /> Search
+              </button>
+              <a
+                href={SITE.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => {
+                  trackContact("whatsapp", "mobile_nav");
+                  setOpen(false);
+                }}
+                className={btn.primary}
+              >
+                {CONTACT_LABEL}
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+      <CommandMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 }

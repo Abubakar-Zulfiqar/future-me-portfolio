@@ -1,114 +1,63 @@
-import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
+import { ArrowRightIcon, DownloadIcon } from "@radix-ui/react-icons";
 import { resumeDoc, trackDownload } from "@/lib/documents";
+import { btn } from "./buttons";
 
-const lines = [
-  { p: "$", c: "whoami" },
-  { p: ">", c: "mian_muhammad_abubakar" },
-  { p: "$", c: "cat role.txt" },
-  { p: ">", c: "Software Engineer · Full-Stack & AI Integration" },
-  { p: "$", c: "uptime" },
-  { p: ">", c: "4+ years · 10,000+ MAU shipped · UAE gov AI platforms" },
-];
+const step = (i: number) => ({ "--i": i }) as CSSProperties;
 
+/**
+ * Hero: oversized light headline over the particle orb (rendered by the fixed ParticleField
+ * behind the page). The orb sits mid-screen; copy holds the top-left and a hairline footer row.
+ */
 export function Hero() {
-  const [shown, setShown] = useState(0);
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setShown(lines.length);
-  }, []);
-  useEffect(() => {
-    if (shown >= lines.length) return;
-    const t = setTimeout(() => setShown((s) => s + 1), 380);
-    return () => clearTimeout(t);
-  }, [shown]);
-
   return (
-    <section
-      id="top"
-      className="relative min-h-screen flex items-center pt-24 pb-16 px-4 sm:px-6 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
-      <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-12 gap-10 items-center relative">
-        <div className="lg:col-span-7 space-y-6 sm:space-y-8 min-w-0">
-          <div className="inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs text-accent border border-accent/30 px-2.5 py-1 rounded-sm max-w-full">
-            <span className="size-1.5 rounded-full bg-accent shadow-glow-sm animate-pulse shrink-0" />
-            <span className="truncate">STATUS: AVAILABLE_FOR_REMOTE_ROLES</span>
-          </div>
+    <section id="top" className="relative flex min-h-[100dvh] flex-col px-4 pt-28 sm:px-6">
+      {/* Soft glow: the visual if WebGL is unavailable, and atmosphere behind the orb. */}
+      <div aria-hidden="true" className="hero-glow absolute inset-0 z-[-2]" />
 
-          <h1 className="font-sans text-[2.25rem] sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight">
-            <span className="block text-foreground">Engineering</span>
-            <span className="block text-primary text-glow crt-flicker">
-              intelligent_
-              <wbr />
-              systems
-            </span>
-            <span className="block text-muted-foreground text-2xl sm:text-3xl md:text-5xl mt-2 font-mono">
-              <span className="text-accent">{">"}</span> that ship.
-            </span>
-          </h1>
+      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col">
+        <p
+          className="enter inline-flex w-fit items-center gap-2 rounded-full border border-[var(--glass-border)] bg-bg/40 px-3 py-1 text-sm text-ink-muted backdrop-blur-md"
+          style={step(0)}
+        >
+          <span className="size-1.5 rounded-full bg-success" aria-hidden="true" />
+          Available for new roles
+        </p>
 
-          <p className="text-muted-foreground max-w-xl leading-relaxed font-mono text-sm">
-            I build production-grade full-stack and AI-powered SaaS platforms — multi-agent
-            orchestration, RAG pipelines, real-time avatar interviews, and multi-tenant hiring SaaS
-            used by 10,000+ people a month.
+        <h1
+          className="enter-blur scrim legible mt-7 max-w-[11ch] pb-2 text-[3.25rem] font-light leading-[1] tracking-[-0.05em] text-ink sm:text-7xl lg:text-[6rem]"
+          style={step(1)}
+        >
+          I build AI systems <span className="text-lit">that ship.</span>
+        </h1>
+
+        <div className="flex-1" />
+
+        <div
+          className="enter scrim legible mb-8 grid grid-cols-1 gap-6 border-t border-[var(--glass-border)] pt-6 md:grid-cols-12 md:items-end"
+          style={step(3)}
+        >
+          <p className="max-w-[44ch] text-base leading-relaxed text-ink-muted md:col-span-6">
+            Full-stack and AI engineer. I built a UAE government talent platform solo, and AI
+            pipelines used by 10,000+ people monthly.
           </p>
-
-          <div className="flex flex-wrap gap-3 font-mono text-sm">
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-sm shadow-glow hover:scale-[1.02] transition-transform"
-            >
-              ./view_projects.sh
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 border border-border text-foreground px-5 py-2.5 rounded-sm hover:border-primary hover:text-primary transition-colors"
-            >
-              <span className="text-accent">@</span> contact()
+          <div className="flex flex-wrap items-center gap-3 md:col-span-6 md:justify-end">
+            <a href="#projects" className={`${btn.primary} group`}>
+              View work
+              <ArrowRightIcon
+                className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
             </a>
             <a
               href={resumeDoc.href}
               download={resumeDoc.file}
               onClick={() => trackDownload(resumeDoc.k)}
-              className="inline-flex items-center gap-2 border border-border text-foreground px-5 py-2.5 rounded-sm hover:border-accent hover:text-accent transition-colors"
+              className={btn.secondary}
             >
-              <span className="text-accent">↓</span> resume.pdf
+              <DownloadIcon className="size-4" aria-hidden="true" />
+              Resume
             </a>
-          </div>
-        </div>
-
-        {/* Terminal window */}
-        <div className="lg:col-span-5">
-          <div className="relative rounded-md border border-border bg-card/80 backdrop-blur shadow-glow overflow-hidden scanlines">
-            <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background/50">
-              <div className="flex gap-1.5">
-                <span className="size-2.5 rounded-full bg-destructive/70" />
-                <span className="size-2.5 rounded-full bg-accent/70" />
-                <span className="size-2.5 rounded-full bg-primary/70" />
-              </div>
-              <span className="font-mono text-xs text-muted-foreground">~ — zsh — 80×24</span>
-              <span className="font-mono text-xs text-primary">●</span>
-            </div>
-            <div className="p-3 sm:p-5 font-mono text-xs sm:text-sm space-y-1.5 min-h-[260px] sm:min-h-[340px] relative z-10">
-              {lines.slice(0, shown).map((l, i) => (
-                <div key={i} className="flex gap-2 min-w-0">
-                  <span className={`shrink-0 ${l.p === "$" ? "text-accent" : "text-primary/60"}`}>
-                    {l.p}
-                  </span>
-                  <span
-                    className={`break-words min-w-0 ${l.p === "$" ? "text-foreground" : "text-primary text-glow"}`}
-                  >
-                    {l.c}
-                  </span>
-                </div>
-              ))}
-              {shown >= lines.length && (
-                <div className="flex gap-2 pt-2">
-                  <span className="text-accent">$</span>
-                  <span className="cursor-blink text-foreground" />
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </div>

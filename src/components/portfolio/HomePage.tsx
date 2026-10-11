@@ -1,30 +1,42 @@
+import { MotionConfig } from "motion/react";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { Nav } from "./Nav";
 import { Hero } from "./Hero";
-import { About } from "./About";
-import { Skills } from "./Skills";
-import { Experience } from "./Experience";
+import { ParticleField } from "./ParticleField";
+import { Story } from "./Story";
 import { Projects } from "./Projects";
+import { Experience } from "./Experience";
+import { Skills } from "./Skills";
+import { About } from "./About";
 import { Contact } from "./Contact";
 
+// Order follows how reviewers read a portfolio: who you are, proof (work, experience), then detail.
 export function HomePage() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded-sm font-mono text-sm"
-      >
-        Skip to content
-      </a>
-      <div className="scan-line" aria-hidden="true" />
-      <Nav />
-      <main id="main">
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Contact />
-      </main>
-    </div>
+    <ErrorBoundary>
+      <MotionConfig reducedMotion="user">
+        <div className="relative min-h-[100dvh] overflow-x-clip">
+          <div aria-hidden="true" className="aurora" />
+          <ParticleField />
+          <div aria-hidden="true" className="grain" />
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-[var(--radius-control)] focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-on-accent"
+          >
+            Skip to content
+          </a>
+          <Nav />
+          <main id="main">
+            <Hero />
+            <Story />
+            <Projects />
+            <Experience />
+            <Skills />
+            <About />
+            <Contact />
+          </main>
+        </div>
+      </MotionConfig>
+    </ErrorBoundary>
   );
 }

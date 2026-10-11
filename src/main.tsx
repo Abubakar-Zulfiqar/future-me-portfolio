@@ -4,6 +4,8 @@ import { RouterProvider } from "@tanstack/react-router";
 import { Analytics } from "@vercel/analytics/react";
 import { HomePage } from "./components/portfolio/HomePage";
 import { getRouter } from "./router";
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
 import "./styles.css";
 
 const container = document.getElementById("root")!;

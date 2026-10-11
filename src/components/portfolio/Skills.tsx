@@ -1,27 +1,40 @@
-import { SectionLabel } from "./About";
+import { Reveal, Section } from "./ui";
 
 const groups = [
-  { name: "languages", items: ["TypeScript", "JavaScript", "Python", "PHP", "SQL"] },
   {
-    name: "frontend",
+    name: "AI and ML",
+    items: [
+      "OpenAI GPT-5",
+      "Multi-agent orchestration",
+      "RAG",
+      "text-embedding-3-large",
+      "pgvector",
+      "HeyGen",
+      "Anam CARA-3",
+      "Azure Speech",
+      "Affinda",
+      "Python ML services",
+    ],
+  },
+  {
+    name: "Frontend",
     items: [
       "React 19",
       "Next.js 16",
-      "Vue 3 / Nuxt",
+      "Vue 3, Nuxt",
       "React Native (Expo)",
       "Tailwind",
       "shadcn/ui",
       "ReactFlow",
-      "Three.js / r3f",
-      "ApexCharts",
+      "Three.js, r3f",
     ],
   },
   {
-    name: "backend",
+    name: "Backend",
     items: [
       "Node.js",
       "NestJS",
-      "Express.js",
+      "Express",
       "FastAPI",
       "Laravel",
       "Livewire",
@@ -30,51 +43,34 @@ const groups = [
       "SSE",
     ],
   },
+  { name: "Languages", items: ["TypeScript", "JavaScript", "Python", "PHP", "SQL"] },
   {
-    name: "ai_ml",
-    items: [
-      "OpenAI GPT-5",
-      "Multi-agent orchestration",
-      "RAG",
-      "text-embedding-3-large",
-      "pgvector",
-      "HeyGen avatars",
-      "Anam CARA-3 (WebRTC)",
-      "Azure Speech STT",
-      "Affinda",
-      "Python ML services",
-    ],
-  },
-  {
-    name: "databases",
+    name: "Databases",
     items: ["PostgreSQL", "Redis", "MySQL", "MongoDB", "SQL Server", "pgvector", "Typesense"],
   },
   {
-    name: "cloud_devops",
+    name: "Cloud and DevOps",
     items: [
-      "AWS (EC2/S3/SES/Transcribe)",
-      "Azure (Blob/Speech/VM/Key Vault)",
+      "AWS (EC2, S3, SES, Transcribe)",
+      "Azure (Blob, Speech, VMs, Key Vault)",
       "Docker",
       "CI/CD",
-      "OSRM self-hosted",
-      "OpenStreetMap",
+      "Self-hosted OSRM",
     ],
   },
   {
-    name: "architecture",
+    name: "Architecture",
     items: [
       "Microservices",
       "Turborepo monorepos",
-      "Event-driven (Bull/Celery)",
+      "Event-driven (Bull, Celery)",
       "Multi-tenant SaaS",
       "Clean Architecture",
-      "OAuth2",
-      "Entra ID SSO",
-      "JWT",
+      "OAuth2, Entra ID, JWT",
     ],
   },
   {
-    name: "integrations",
+    name: "Integrations",
     items: [
       "Stripe",
       "PayPal",
@@ -90,35 +86,32 @@ const groups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <SectionLabel index="02" title="stack" />
-        <div className="grid md:grid-cols-2 gap-4 mt-10">
-          {groups.map((g) => (
-            <div
-              key={g.name}
-              className="border border-border bg-card/60 backdrop-blur-sm rounded-sm p-4 sm:p-5 hover:border-primary/50 transition-all group"
-            >
-              <div className="flex items-center gap-2 font-mono text-xs mb-4">
-                <span className="text-accent">▸</span>
-                <span className="text-primary">{g.name}</span>
-                <span className="text-muted-foreground">.json</span>
-                <span className="ml-auto text-muted-foreground">{g.items.length} pkg</span>
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {g.items.map((it) => (
-                  <span
-                    key={it}
-                    className="font-mono text-xs border border-border bg-background/60 px-2 py-1 rounded-sm text-foreground/90 hover:border-primary hover:text-primary hover:shadow-glow-sm transition-all cursor-default"
-                  >
-                    {it}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+    <Section
+      id="skills"
+      title="Stack"
+      intro="The tools behind the systems above, grouped by layer."
+    >
+      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-media)] border border-[var(--glass-border)] bg-[var(--glass-border)] shadow-[var(--glass-shadow)] lg:grid-cols-4">
+        {groups.map((g, i) => (
+          <Reveal
+            key={g.name}
+            delay={(i % 4) * 0.06}
+            className="min-w-0 bg-bg/75 p-4 backdrop-blur-xl sm:p-6"
+          >
+            <h3 className="text-sm font-medium text-ink">{g.name}</h3>
+            <ul className="mt-4 space-y-2">
+              {g.items.map((it) => (
+                <li
+                  key={it}
+                  className="break-words font-mono text-xs leading-snug text-ink-subtle sm:text-[13px]"
+                >
+                  {it}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }
