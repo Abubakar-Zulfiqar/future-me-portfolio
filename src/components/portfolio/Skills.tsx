@@ -4,7 +4,7 @@ const groups = [
   {
     name: "AI and ML",
     items: [
-      "OpenAI GPT-5",
+      "OpenAI APIs (function calling)",
       "Multi-agent orchestration",
       "RAG",
       "text-embedding-3-large",
@@ -63,7 +63,7 @@ const groups = [
     items: [
       "Microservices",
       "Turborepo monorepos",
-      "Event-driven (Bull, Celery)",
+      "Background jobs (Bull, Redis)",
       "Multi-tenant SaaS",
       "Clean Architecture",
       "OAuth2, Entra ID, JWT",
@@ -78,7 +78,6 @@ const groups = [
       "Twilio",
       "Pusher",
       "Socket.io",
-      "Playwright",
       "Puppeteer",
     ],
   },

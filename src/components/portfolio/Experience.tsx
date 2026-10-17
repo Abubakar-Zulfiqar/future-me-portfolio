@@ -8,9 +8,9 @@ const jobs = [
     end: "Present",
     bullets: [
       "Sole full-stack developer on Mawaheb, the UAE government talent platform: AI-generated assessments, real-time avatar interviews over WebRTC, and a Skills Observatory dashboard.",
-      "Built a multi-agent orchestration layer that routes tasks to role-specific agents, with a three-tier memory (Redis, Postgres, pgvector) powering RAG over user documents.",
+      "Built a multi-agent orchestration layer that routes tasks to role-specific agents, with RAG over user documents on PostgreSQL and pgvector.",
       "Shipped an AI screening pipeline for a hiring SaaS serving 10,000+ monthly users, cutting candidate evaluation from days to minutes.",
-      "Delivered an AI LMS of 27 NestJS services with 95+ unit and end-to-end tests, and the UAE National Experts Program assessment pipeline.",
+      "Delivered an AI LMS of 27 NestJS services and the UAE National Experts Program assessment pipeline, and added a Redis distributed lock so AI scoring runs once across replicas.",
     ],
   },
   {

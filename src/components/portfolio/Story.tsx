@@ -96,7 +96,7 @@ export function Story() {
           <Focus className="scrim legible md:col-span-5">
             <p className="max-w-[36ch] text-base leading-relaxed text-ink-muted">
               AI talent platforms for the UAE government, hiring SaaS used by 10,000+ people a
-              month, and an assistant that spans 8+ work apps.
+              month, and an assistant that spans 7 work apps.
             </p>
           </Focus>
           <Focus

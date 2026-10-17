@@ -42,16 +42,16 @@ const featured: Featured[] = [
     name: "AI Employee Agent",
     context: "Aslase, multi-agent productivity platform",
     summary:
-      "One assistant over Gmail, Outlook, Jira, GitHub, Notion, Drive, Calendar and WhatsApp. Agents route the work; RAG supplies the context.",
+      "One assistant over Gmail, Jira, GitHub, Notion, Drive, Calendar and WhatsApp. Agents route the work; RAG supplies the context.",
     impact:
-      "Automates email triage, ticket creation, meeting prep and status alerts across 8+ work apps.",
-    stack: ["Next.js 16", "NestJS", "FastAPI", "pgvector", "Celery", "GPT-5"],
+      "Automates email triage, ticket creation, meeting prep and status alerts across 7 work apps.",
+    stack: ["NestJS", "React", "PostgreSQL", "pgvector", "OpenAI"],
     flow: [
       { title: "Request", detail: "Chat or ReactFlow workflow editor" },
       { title: "Orchestrator", detail: "Detects complex tasks, routes them" },
       { title: "Role agents", detail: "32 function-calling tools" },
-      { title: "Three-tier memory", detail: "Redis, Postgres, pgvector (3072-dim)" },
-      { title: "8+ connected apps", detail: "OAuth integrations, SSE updates" },
+      { title: "RAG knowledge base", detail: "Docs chunked, embedded, searched in pgvector" },
+      { title: "7 connected apps", detail: "OAuth integrations, scheduled analyzers" },
     ],
   },
   {
@@ -65,7 +65,7 @@ const featured: Featured[] = [
       { title: "CV upload", detail: "Affinda parses it to structured data" },
       { title: "Assessments", detail: "Automated MCQ and coding tests" },
       { title: "Video interview", detail: "Recorded and transcribed" },
-      { title: "GPT-5 scoring", detail: "Evaluates interview responses" },
+      { title: "LLM scoring", detail: "Evaluates interview responses" },
       { title: "Ranked shortlist", detail: "ML job-to-candidate matching" },
     ],
   },
@@ -87,10 +87,10 @@ const more: Project[] = [
     summary:
       "27-service NestJS and Vue 3 learning platform with HeyGen-avatar mock interviews and AI career counseling.",
     details:
-      "Adaptive learning, mock interviews powered by HeyGen avatars and GPT-5, AI career counseling, ML course generation, skill gap analysis, PDFKit certificates and workforce analytics. Full multi-tenant isolation, validated with 95+ unit and end-to-end tests.",
+      "Adaptive learning, mock interviews powered by HeyGen avatars and OpenAI, AI career counseling, ML course generation, skill gap analysis, PDFKit certificates and workforce analytics. Full multi-tenant isolation, with Redis-cached AI recommendations.",
     impact:
       "On-demand AI tutoring and mock interviews, so orgs scale upskilling without adding trainers.",
-    stack: ["NestJS", "Vue 3", "PostgreSQL 16", "Redis", "HeyGen"],
+    stack: ["NestJS", "Vue 3", "PostgreSQL", "Redis", "HeyGen"],
   },
   {
     name: "NEP, UAE National Experts Program",
@@ -101,7 +101,7 @@ const more: Project[] = [
       "Evaluates AI expertise, leadership capacity, strategic thinking, growth mindset and ethical leadership. Affinda and a custom ML server parse resumes, followed by a 5-question AI text interview and two phased MCQ rounds. Bull jobs poll the ML server while Socket.io pushes live progress; Puppeteer renders PDF reports.",
     impact:
       "Replaced weeks of manual screening; every candidate scored on the same four-pillar rubric.",
-    stack: ["Express", "Bull", "Socket.io", "GPT-5", "Puppeteer"],
+    stack: ["Express", "Bull", "Socket.io", "OpenAI", "Puppeteer"],
   },
   {
     name: "UK Transportation Platform",

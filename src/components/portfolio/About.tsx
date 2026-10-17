@@ -49,7 +49,7 @@ export function About() {
               I work across multi-agent AI orchestration, retrieval-augmented generation, real-time
               systems and multi-tenant SaaS. That has meant AI talent platforms for the UAE
               government, hiring software used by 10,000+ people a month, systems that run UK
-              transport operators, and an assistant that unifies 8+ work apps.
+              transport operators, and an assistant that unifies 7 work apps.
             </p>
             <p className="max-w-[65ch] text-base leading-relaxed text-ink-muted">
               I own delivery end to end: database schema, API design, frontend, and cloud deployment
